@@ -1,0 +1,46 @@
+{% extends 'layouts.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container">
+        {% if not orders %}
+            <div class="alert alert-danger py-2" role="alert">
+                <b>No Order History</b>
+            </div>
+        {% else %}
+        <h3 align="center">Order History</h3>
+        <div class="table-responsive">
+            <table class="table table-condensed">
+                <thead>
+                    <tr class="cart_menu">
+                        <td>order id</td>
+                        <td>order date</td>
+                        <td>order total</td>
+                        <td>order detail</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in orders %}
+                    <tr>
+                        <td class="cart_price">
+                            <p>{{item.id}}</p>
+                        </td>
+                        <td class="cart_total">
+                            <p class="cart_total_price">{{item.created | date:"d M Y"}}</p>
+                        </td>
+                        <td class="cart_total">
+                            <p class="cart_total_price">{{item.total | floatformat:'g'}}</p>
+                        </td>
+                        <td class="cart_total">
+                            <a href="{% url 'orderDetails' item.id %}" class="btn btn-success">order detail</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+    </div>
+
+{% endblock %}

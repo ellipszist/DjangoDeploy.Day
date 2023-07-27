@@ -1,0 +1,81 @@
+{% extends 'layouts.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row my-2">
+      <div class="col-md-12">
+      <div class="invoice-title text-right">
+          <h3>Order No # {{order.id}}</h3>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-6">
+          <address>
+          <strong>Retailer:</strong><br>
+            The Day Champagne<br>
+            123 Faroe Islands Shibuya<br>
+            Namek<br>
+            999
+          </address>
+        </div>
+        <div class="col-md-6 text-right">
+          <address>
+            <strong>Customer Details:</strong><br>
+            Name : {{order.name}}<br>
+            Address : {{order.address}}<br>
+            City : {{order.city}}<br>
+            Pastcode : {{order.postcode}}
+          </address>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><strong>Order Details</strong></h3>
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table table-condensed">
+              <thead>
+                    <tr>
+                    <td><strong>Product Name</strong></td>
+                    <td class="text-center"><strong>Price</strong></td>
+                    <td class="text-center"><strong>Quantity</strong></td>
+                    <td class="text-right"><strong>Total</strong></td>
+                    </tr>
+              </thead>
+              <tbody>
+                {% for item in order_items %}
+                <tr>
+                  <td>{{item.product}}</td>
+                  <td class="text-center">{{item.price | floatformat:'g'}}</td>
+                  <td class="text-center">{{item.quantity}}</td>
+                  <td class="text-right">{{item.sub_total | floatformat:'g'}}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td class="no-line"></td>
+                    <td class="no-line text-center"></td>
+                    <td class="no-line text-center">Payment Amount</td>
+                    <td class="no-line text-right">{{order.total | floatformat:'g'}}</td>
+                  </tr>
+              </tbody>
+            </table>
+            <button class="btn btn-secondary pull-right" onclick="window.print()">
+              <i class="fas fa-print"></i>
+              Print Purchase Order
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+{% endblock %}
