@@ -23,5 +23,6 @@
     "src": "/(.*)",
     "dest": "djangochampagne/wsgi.py"
     }
-    ]
+    ],
+    "rewrites": [{"source": "/(.*)","destination":"/"}]
   }
