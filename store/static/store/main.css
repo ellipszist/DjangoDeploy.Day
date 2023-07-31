@@ -1,0 +1,172 @@
+/* mitr-300 - latin_thai */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Mitr';
+    font-style: normal;
+    font-weight: 300;
+    src: url('fonts/mitr-v11-latin_thai-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* mitr-regular - latin_thai */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Mitr';
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/mitr-v11-latin_thai-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+  /* Global */
+  *, ::before, ::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    color: #333333;
+    font-family: 'Mitr', sans-serif;
+    font-weight: 300;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #111111;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  h4 {
+    font-size: 22px;
+  }
+
+  h5 {
+    font-size: 20px;
+  }
+
+  h6 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  a {
+    color: rgba(0, 0, 255, 0.552);
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .image-product {
+    width: 500px;
+    height: 300px;
+    object-fit: scale-down;
+  }
+
+  .image-block {
+    display: block;
+    max-width: 40%;
+    margin-bottom: 12px;
+    margin-top: 12px;
+  }
+
+  .image-block-home {
+    display: block;
+    max-width: 90%;
+    margin-bottom: 12px;
+    margin-top: 12px;
+  }
+
+  .content-section {
+    padding: 64px 16px;
+  }
+  .content-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .content-tittle {
+    margin-bottom: 24px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 16px;
+    row-gap: 16px;
+    margin-bottom: 16px;
+  }
+
+   /* site-header */
+   .site-header {
+    background-color: white;
+    border-bottom: gray;
+    box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: flex-start;
+    height: 50px;
+   }
+
+   .site-header-item {
+    color: #111111;
+    background-color: rgba(0, 0, 0, 0);
+    font-weight: 400;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+    transition: background-color 300ms;
+   }
+
+   .site-header-item-hover {
+    background-color: rgba(0, 0, 0, 0.1);
+   }
+
+   .site-header-brand img {
+    display: inline-block;
+    height: 32px;
+    margin-right: 8px;
+   }
+
+   /* site-footer */
+   .site-footer {
+    background-color: rgb(232, 232, 232);
+    text-align: center;
+    padding: 16px;
+   }
+
+   .site-footer-Copyright {
+    font-size: 12px;
+   }
+
+   /* home-landing-section */
+   .home-landing-section {
+    background-color: #ffffff;
+    background-image: url('bubble_background.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding: 180px 20px;
+   }
+
+   .home-landing-text {
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+    margin-top: 0px;
+    margin-bottom: 24px;
+   }
