@@ -1,0 +1,70 @@
+{% load static %}
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="site-header-item site-header-brand" href="/">
+        <img src="{% static 'store/logo.png' %}">
+        <span>Home</span>
+      </a>
+      <a href="/"></a>
+      <button type="button" class="navbar-toggler bg-light" data-toggle="collapse"data-target="#nav" name="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-between" id="nav">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="site-header-item dropdown-toggle" href="" data-toggle="dropdown">Categories</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="{% url 'home' %}">All Champagne</a>
+            {% for category in links %}
+            <a class="dropdown-item" href="{{category.get_url}}">{{category.name}}</a>
+            {% endfor %}
+          </div>
+        </li>
+          <li class="nav-item dropdown">
+            {% if request.user.is_authenticated and request.user.first_name %}
+            <a class="site-header-item dropdown-toggle" href="" data-toggle="dropdown">
+              Welcome, {{request.user.first_name }}<i class="fas fa-user circle"></i>
+            </a>
+            <div class="dropdown-menu">
+              <a class="site-header-item" href="{% url 'orderHistory' %}">Order History</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="site-header-item" href="{% url 'signOut' %}">
+              Sign Out 
+            </a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="site-header-item" href="{% url 'signUp' %}">
+              Sign Up 
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="site-header-item" href="{% url 'signIn' %}">
+              Sign In 
+            </a>
+          </li>
+          {% endif %}
+        <li class="nav-item">
+          <a class="site-header-item" href="{% url 'cartdetail' %}">
+            <i class="fas fa-shopping-cart"></i>
+            {% if item_count > 0 %}
+              {{item_count}}
+            {% else %}
+              0
+            {% endif %}
+        </a>
+      </li>
+      </ul>
+      <form class="form-inline ml-3" action="{% url 'search' %}", method="GET">
+        <div class="input-group">
+          <input type="text" name="title" class="form-control" placeholder="Search">
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-warning"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+      </form>
+      </div>
+    </nav>  
+</header>
